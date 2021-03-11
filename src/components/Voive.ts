@@ -153,7 +153,9 @@ const createPlayer = (btnList: { [name: string]: any }) => {
           title: t('voice.' + voice.name),
           artist: t(INFO_I18N.fullName),
           album: t(INFO_I18N.title),
-          artwork: MEDIA ? [{ src: `./img/${MEDIA}`, sizes: '128x128' }] : []
+          artwork: MEDIA
+            ? [{ src: `https://hiiro.club/img/${MEDIA}`, sizes: '128x128' }]
+            : []
         }
         navigator.mediaSession.metadata = new window.MediaMetadata(meta)
         navigator.mediaSession.playbackState = 'playing'
@@ -415,7 +417,7 @@ const createPlayer = (btnList: { [name: string]: any }) => {
    */
   const getPicUrl = (usePicture?: Translate) => {
     return usePicture && Boolean(usePicture[locale.value])
-      ? `/voices/img/${usePicture[locale.value]}`
+      ? `./voices/img/${usePicture[locale.value]}`
       : null
   }
 
